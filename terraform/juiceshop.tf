@@ -43,9 +43,10 @@ module "AppDeploy" {
   tenant               = "juiceshop"
   as3tmpl              = "http"
   common_name          = "juiceshop"
-  vip_address          = "10.0.1.158"
+  vip_address          = output.private_addresses.value[0].mgmt_private.private_ip[0]
   pool_members_port    = "3000"
   monitor              = "tcp"
   load_balancing_mode  = "least-connections-member"
   pool_members         = [aws_instance.juiceshop[0].private_ip]
+  depends_on = [ module.bigip ]
 }
