@@ -37,4 +37,3 @@ resource "aws_security_group" "juiceshop_sg" {
     ipv6_cidr_blocks = ["::/0"]
   }
 }
-
