@@ -38,8 +38,7 @@ resource "aws_security_group" "juiceshop_sg" {
   }
 }
 
-
-module "app1" {
+module "AppDeploy" {
   source  = "sebbycorp/AppDeploy/F5AS3"
   version              = "1.0.3"
   tenant               = "juiceshop"
