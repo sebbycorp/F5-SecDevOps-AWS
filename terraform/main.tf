@@ -4,12 +4,21 @@ terraform {
       source  = "hashicorp/aws"
       version = "5.21.0"
     }
+    bigip = {
+      source = "F5Networks/bigip"
+      version = "1.20.0"
+    }
   }
 
   required_version = ">=1.5.0"
 
 }
 
+provider "bigip" {
+  address  = "${outputs.mgmtPublicIP.value[0]}:8443"
+  username = "bigipuser"
+  password = outputs.bigip_password.value[0]
+}
 provider "aws" {
   region = "us-east-1"
 }
