@@ -21,7 +21,7 @@ permissions:
 jobs:
   terraform_apply:
     if: ${{ github.event.inputs.action == 'terraform_apply' }}
-    name: 'Terraform'
+    name: 'terraform_apply'
     runs-on: ubuntu-latest
     environment: production
 
@@ -69,7 +69,7 @@ jobs:
 
   
   terraform_destroy:
-    name: 'Terraform Destroy'
+    name: 'terraform_destroy'
     if: ${{ github.event.inputs.action == 'terraform_destroy' }}
     runs-on: ubuntu-latest
     environment: production
