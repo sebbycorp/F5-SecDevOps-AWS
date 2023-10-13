@@ -15,9 +15,9 @@ terraform {
 }
 
 provider "bigip" {
-  address  = "${outputs.mgmtPublicIP.value[0]}:8443"
+  address  = "${module.bigip.mgmtPublicIP}:8443"
   username = "bigipuser"
-  password = outputs.bigip_password.value[0]
+  password = module.bigip.bigip_password
 }
 provider "aws" {
   region = "us-east-1"
