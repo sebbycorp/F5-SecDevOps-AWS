@@ -48,11 +48,7 @@ output "bigip_nic_ids" {
   value       = module.bigip.*.bigip_nic_ids
 }
 
-output "juicehop_private_ip" {
-  value = aws_instance.juiceshop.*.private_ip
-}
   
-}
 // output tls_privatekey {
 //   value = tls_private_key.example.private_key_pem
 // }
