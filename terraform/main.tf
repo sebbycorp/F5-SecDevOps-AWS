@@ -24,30 +24,30 @@ terraform {
   }
 }
 
-# ## ONLY TO BUILD BUCKET AT FIRST LAUNCH 
-# resource "aws_s3_bucket" "terraform_state" {
-#   bucket = "f5-secdevops-aws-terraform-state"
-# }
+## ONLY TO BUILD BUCKET AT FIRST LAUNCH 
+resource "aws_s3_bucket" "terraform_state" {
+  bucket = "f5-secdevops-aws-terraform-state"
+}
 
 
-# resource "aws_s3_bucket_versioning" "versioning_example" {
-#   bucket = aws_s3_bucket.terraform_state.id
-#   versioning_configuration {
-#     status = "Enabled"
-#   }
-# }
+resource "aws_s3_bucket_versioning" "versioning_example" {
+  bucket = aws_s3_bucket.terraform_state.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
 
 
-# resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
-#   name           = "f5-secdevops-aws-terraform-state-lock-dynamo"
-#   hash_key       = "LockID"
-#   read_capacity  = 20
-#   write_capacity = 20
-#   tags = {
-#     Name = "DynamoDB f5-secdevops-aws State"
-#   }
-#   attribute {
-#     name = "LockID"
-#     type = "S"
-#   }
-# }
+resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
+  name           = "f5-secdevops-aws-terraform-state-lock-dynamo"
+  hash_key       = "LockID"
+  read_capacity  = 20
+  write_capacity = 20
+  tags = {
+    Name = "DynamoDB f5-secdevops-aws State"
+  }
+  attribute {
+    name = "LockID"
+    type = "S"
+  }
+}
