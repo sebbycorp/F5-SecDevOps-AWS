@@ -39,7 +39,7 @@ resource "aws_security_group" "juiceshop_sg" {
 }
 
 module "AppDeploy" {
-  source  = "sebbycorp/AppDeploy/F5AS3"
+  source  = "github.com/sebbycorp/terraform-F5AS3-AppDeploy"
   version              = "1.0.3"
   tenant               = "juiceshop"
   as3tmpl              = "http"
