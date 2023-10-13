@@ -13,7 +13,7 @@ on:
         type: choice
         options:
         - terraform_apply
-        - terraform_destory
+        - terraform_destroy
 
 permissions:
   contents: read
