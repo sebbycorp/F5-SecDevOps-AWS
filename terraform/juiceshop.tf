@@ -37,3 +37,17 @@ resource "aws_security_group" "juiceshop_sg" {
     ipv6_cidr_blocks = ["::/0"]
   }
 }
+
+
+module "app1" {
+  source  = "sebbycorp/AppDeploy/F5AS3"
+  version              = "1.0.3"
+  tenant               = "juiceshop"
+  as3tmpl              = "http"
+  common_name          = "juiceshop"
+  vip_address          = module.bigip.*.public_addresses
+  pool_members_port    = "3000"
+  monitor              = "tcp"
+  load_balancing_mode  = "least-connections-member"
+  pool_members         = [aws_instance.juiceshop[0].private_ip]
+}
