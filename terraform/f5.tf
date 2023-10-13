@@ -1,6 +1,3 @@
-provider "aws" {
-  region = var.region
-}
 
 #
 # Create a random id
