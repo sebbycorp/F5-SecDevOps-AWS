@@ -52,3 +52,7 @@ output "bigip_nic_ids" {
 // output tls_privatekey {
 //   value = tls_private_key.example.private_key_pem
 // }
+output "mgmt_private_ips" {
+  description = "List of BIG-IP management private IP addresses"
+  value       = [for address in module.bigip.*.private_addresses : address.mgmt_private.private_ip]
+}

@@ -43,7 +43,7 @@ module "AppDeploy" {
   tenant               = "juiceshop"
   as3tmpl              = "http"
   common_name          = "juiceshop"
-  vip_address          =  module.bigip.private_addresses[0].mgmt_private.private_ip
+  vip_address          =  "10.0.1.158"
   pool_members_port    = "3000"
   monitor              = "tcp"
   load_balancing_mode  = "least-connections-member"
