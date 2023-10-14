@@ -15,7 +15,7 @@ terraform {
 }
 
 provider "bigip" {
-  address  = "${module.bigip.*.mgmtPublicIP}:8443"
+  address  = "${module.bigip[0].mgmtPublicIP}:8443"
   username = "bigipuser"
   password = random_string.password.result
 }
