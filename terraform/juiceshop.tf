@@ -67,3 +67,12 @@ module "AppDeploy" {
   pool_members         = [aws_instance.juiceshop[0].private_ip]
   depends_on = [ module.bigip ]
 }
+
+
+resource "aws_route53_record" "securedemo_maniak_academy" {
+  zone_id = "Z08152651IEON21MZBRNJ"  # Replace with your Route 53 hosted zone ID
+  name    = "securedemo.maniak.academy"
+  type    = "A"
+  ttl     = 300
+  records = [module.bigip[0].mgmtPublicIP]  # Replace with the IP address for securedemo.maniak.academy
+}
