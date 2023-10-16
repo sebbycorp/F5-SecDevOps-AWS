@@ -29,6 +29,14 @@ resource "aws_security_group" "juiceshop_sg" {
     cidr_blocks = ["0.0.0.0/0"]
 
   }
+  ingress {
+    description = "ssh"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
   egress {
     from_port        = 0
     to_port          = 0
@@ -43,7 +51,7 @@ module "AppDeploy" {
   tenant               = "juiceshop"
   as3tmpl              = "http"
   common_name          = "juiceshop"
-  vip_address = module.bigip.mgmt_private_ips[0]
+  vip_address          =  "10.0.1.183"
   pool_members_port    = "3000"
   monitor              = "tcp"
   load_balancing_mode  = "least-connections-member"
