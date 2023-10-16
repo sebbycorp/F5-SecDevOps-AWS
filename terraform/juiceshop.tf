@@ -60,7 +60,7 @@ module "AppDeploy" {
   tenant               = "juiceshop"
   as3tmpl              = "http"
   common_name          = "juiceshop"
-  vip_address          =  "10.0.1.183"
+  vip_address          =  "10.0.1.152"
   pool_members_port    = "80"
   monitor              = "tcp"
   load_balancing_mode  = "least-connections-member"
