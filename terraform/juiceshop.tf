@@ -61,7 +61,7 @@ module "AppDeploy" {
   as3tmpl              = "http"
   common_name          = "juiceshop"
   vip_address          =  "10.0.1.183"
-  pool_members_port    = "3000"
+  pool_members_port    = "80"
   monitor              = "tcp"
   load_balancing_mode  = "least-connections-member"
   pool_members         = [aws_instance.juiceshop[0].private_ip]
