@@ -6,6 +6,7 @@ resource "aws_instance" "juiceshop" {
   subnet_id              = aws_subnet.mgmt.id
   key_name               = "demokeyforaws"
   user_data              = file("juice.sh")
+  associate_public_ip_address = true
 
   root_block_device {
     volume_size = "10"
