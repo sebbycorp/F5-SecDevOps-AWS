@@ -22,9 +22,17 @@ resource "aws_security_group" "juiceshop_sg" {
   vpc_id      = module.vpc.vpc_id
 
   ingress {
-    description = "HTTP"
+    description = "HTTPs"
     from_port   = 3000
     to_port     = 3000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
+  ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
 
