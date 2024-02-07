@@ -56,3 +56,15 @@ output "mgmt_private_ips" {
   description = "List of BIG-IP management private IP addresses"
   value       = [for address in module.bigip.*.private_addresses : address.mgmt_private.private_ip]
 }
+
+output "httpbin_private_ips" {
+  description = "List of httpbin private IP addresses"
+  value       = [for address in aws_instance.httpbin : address.private_ip]
+  
+}
+
+output "httpbin_public_ips" {
+  description = "List of httpbin public IP addresses"
+  value       = [for address in aws_instance.httpbin : address.public_ip]
+  
+}
